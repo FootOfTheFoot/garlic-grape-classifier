@@ -1,0 +1,24 @@
+conda create -n tf_gpu python=3.9.25
+conda activate tf_gpu
+
+pip install ipykernel
+python -m ipykernel install --user --name=tf_gpu --display-name "TF-GPU"
+
+pip install tensorflow==2.10.1
+pip install numpy==1.26.4
+pip install pandas==2.3.3
+pip install matplotlib==3.7.5
+pip install pillow==9.5.0
+pip install scipy==1.10.1
+pip install notebook==7.0.6
+pip install icrawler
+pip install imagehash
+pip install splitfolders
+pip install pillow-heif
+pip install seaborn==0.13.0
+pip install scikit-learn==1.4.0
+pip install opencv-python
+pip install streamlit
+
+pip install protobuf==3.20.3
+conda install -y -c conda-forge cudatoolkit=11.2 cudnn=8.1
