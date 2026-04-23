@@ -1,57 +1,190 @@
-# Grapes vs Onion Image Classification System  
+# Garlic vs Grape Image Classification System  
 **Custom CNN + Transfer Learning + Hyperparameter Optimization + TensorFlow Lite Deployment**
 
 ---
 
 ## 1. Project Introduction & Objectives
 
-This project develops a production-ready deep learning pipeline capable of accurately distinguishing between **Peach** and **Onion** images under real-world conditions.
+This project develops a deep learning-based image classification pipeline to accurately distinguish between **garlic** and **grape** images under varied real-world conditions.
 
-The objective was not merely to build a classifier, but to engineer a **fully optimized computer vision system** that includes:
+The objective was to design and evaluate a **complete computer vision workflow**, covering:
 
-1. **Dataset construction and preprocessing**
-2. **Transfer learning benchmarking (Pretrained CNNs)**
-3. **Custom CNN architecture development**
-4. **Systematic hyperparameter tuning**
-5. **Model comparison and selection**
-6. **TensorFlow Lite deployment for mobile inference**
+1. Dataset preparation and preprocessing  
+2. Transfer learning benchmarking using pretrained CNNs  
+3. Custom CNN architecture development  
+4. Hyperparameter tuning and optimisation  
+5. Model comparison and selection  
+6. TensorFlow Lite conversion for on-device inference  
 
-The final model is deployed into a **mobile application** using TensorFlow Lite, enabling real-time classification on-device.
+The final model is prepared for **mobile deployment**, enabling real-time image classification on-device.
 
 ---
 
 ## 2. System Architecture Overview
 
-The project follows a structured experimental progression:
+The project follows a structured experimental workflow:
 
 ### **Section A: Dataset Engineering**
 
-A curated dataset of Peach and Onion images was constructed and standardized.
+A curated dataset of garlic and grape images was constructed and standardised.
 
 Key processes include:
 
-- Image resizing and normalization
-- Format conversion and RGB standardization
-- Data augmentation for robustness
-- Train / Validation / Test splitting
-- Corruption filtering and integrity verification
+- Image resizing and normalization  
+- RGB standardisation  
+- Data augmentation (rotation, flipping, etc.)  
+- Train / validation / test splitting  
+- Basic data cleaning and integrity checks  
 
-The dataset was designed to simulate real-world variability in:
+The dataset was designed to introduce variability in:
 
-- Lighting conditions
-- Background clutter
-- Object positioning
-- Partial occlusion
+- Lighting conditions  
+- Background clutter  
+- Object positioning  
+- Partial occlusion  
 
 ---
 
 ### **Section B: Transfer Learning Benchmarking**
 
-State-of-the-art pretrained architectures were evaluated as baselines:
+Pretrained convolutional neural networks were evaluated as baseline models:
 
+- **InceptionV3**  
+- **MobileNetV2**  
+- **ResNet50V2**
+
+Each model was initialised with ImageNet weights and adapted for binary classification.
+
+#### Transfer Learning Strategy
+
+- Frozen feature extractor during initial training  
+- Custom classification head with:
+  - Global Average Pooling  
+  - Dense layers  
+  - Dropout for regularisation  
+- Partial layer unfreezing for fine-tuning  
+- Reduced learning rate during fine-tuning  
+
+This phase established strong baseline performance before exploring custom architectures.
+
+---
+
+### **Section C: Custom CNN Architecture Development**
+
+A convolutional neural network was developed from scratch through iterative experimentation.
+
+#### Architectural Components
+
+- Conv2D layers with ReLU activation  
+- Batch Normalization  
+- MaxPooling layers  
+- Dropout layers for regularisation  
+- Fully connected dense layers  
+- Sigmoid output layer for binary classification  
+
+Multiple architectures were tested to address:
+
+- Underfitting  
+- Overfitting  
+- Training instability  
+- Generalisation performance  
+
+Models were evaluated based on:
+
+- Validation accuracy  
+- Generalisation gap  
+- Convergence behaviour  
+- Model complexity  
+
+---
+
+## 3. Hyperparameter Optimization Strategy
+
+A consistent training configuration was used across experiments:
+
+| Hyperparameter | Setting |
+|---------------|--------|
+| Optimizer | Adam |
+| Learning Rate | 1e-4 |
+| Batch Size | 32 |
+| Loss Function | Binary Crossentropy |
+| Initialization | He Normal |
+
+### Training Optimisation Techniques
+
+- **ReduceLROnPlateau** – dynamically lowers learning rate  
+- **Early Stopping** – prevents overfitting  
+- **Model Checkpointing** – saves best-performing model  
+
+---
+
+## 4. Model Comparison & Selection
+
+Models were compared based on:
+
+- Validation and test accuracy  
+- Overfitting behaviour  
+- Model size and efficiency  
+- Inference speed  
+
+The selected model achieved a good balance between **accuracy, stability, and efficiency**, making it suitable for deployment.
+
+---
+
+## 5. TensorFlow Lite Conversion & Deployment
+
+The final model was converted to **TensorFlow Lite (TFLite)** for lightweight deployment.
+
+### Conversion Process
+
+- Export trained model  
+- Convert to TFLite format  
+- Validate inference outputs  
+- Optimise for reduced size  
+
+### Deployment Use Case
+
+- Real-time image classification  
+- On-device inference (no internet required)  
+- Low-latency predictions  
+- Lightweight storage footprint  
+
+---
+
+## 6. Key Highlights
+
+- End-to-end ML pipeline from data preparation to deployment  
+- Benchmarking of pretrained models vs custom CNN  
+- Structured hyperparameter tuning approach  
+- Deployment-ready model using TensorFlow Lite  
+
+---
+
+## 7. Technologies Used
+
+- Python  
+- TensorFlow / Keras  
+- NumPy / Matplotlib  
+- OpenCV / PIL  
+- TensorFlow Lite  
+
+---
+
+## 8. Future Improvements
+
+- Model quantisation for faster inference  
+- Multi-class classification (more food categories)  
+- Larger and more diverse dataset  
+- Integration into a full mobile application  
+
+---
+
+## 9. Conclusion
+
+This project demonstrates a complete machine learning workflow for image classification, from dataset preparation to deployment. By combining transfer learning, custom CNN development, and structured experimentation, the system achieves reliable classification of garlic and grape images while remaining suitable for lightweight deployment.
+- **InceptionV3**
 - **MobileNetV2**
-- **ResNet50**
-- **EfficientNetB0**
+- **ResNet50V2**
 
 Each model utilized ImageNet pretrained weights and was fine-tuned for binary classification.
 
