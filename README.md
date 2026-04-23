@@ -1,4 +1,4 @@
-# Peach vs Onion Image Classification System  
+# Grapes vs Onion Image Classification System  
 **Custom CNN + Transfer Learning + Hyperparameter Optimization + TensorFlow Lite Deployment**
 
 ---
